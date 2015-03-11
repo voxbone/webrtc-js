@@ -78,9 +78,44 @@ Please note that no other headers are forwarded by Voxbone.
 
 ## Calling
 
-### Call establishment
+####Call establishment####
 Once you're fully set up, you can now establish a call to a given number using
 ```javascript
 var e164 = 'a_number';
 voxbone.WebRTC.call(e164);
+```
+
+display name of the caller can be customized using
+```javascript
+voxbone.WebRTC.configuration.display_name = "a custom display name";
+```
+Note that the above has to be performed before call is established.
+
+video and audio html element will automatically gets added to the html document upon call establishment.
+If you want to avoid defaults elements to be added the page and feed your own element, you can set the ids of these element.
+voxbone.WebRTC will then simply attach the streams to the provided element instead of providing its own.
+
+```javascript
+voxbone.WebRTC.audioComponentName = "peer-audio";
+voxbone.WebRTC.videoComponentName = "peer-video";
+```
+
+####Muting####
+
+Audio stream can be muted/unmuted as shown below
+```javascript
+//mute the audio stream
+voxbone.WebRTC.mute();
+//unmute the audio stream
+voxbone.WebRTC.unmute();
+//check if audio stream is muted (returns true/false)
+voxbone.WebRTC.isMuted
+```
+
+####Sending DTMF####
+
+DTMF can be sent once the call is established using
+```javascript
+//Send 1 as DTMF
+voxbone.WebRTC.sendDTMF(1);
 ```
