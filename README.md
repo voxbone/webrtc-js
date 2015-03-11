@@ -119,3 +119,9 @@ DTMF can be sent once the call is established using
 //Send 1 as DTMF
 voxbone.WebRTC.sendDTMF(1);
 ```
+
+## Testing Web browser support
+In order to test if the web browser do support WebRTC, we added a conveniant method which will simply returns true/false depending on the web browser capabilities
+```javascript
+var supported = voxbone.WebRTC.isWebRTCSupported();
+```
