@@ -1,7 +1,8 @@
 # webrtc-js
 
 ## Introduction
-webrtc-js is a Voxbone project which aims at providing an easy way for customers to make their DID numbers reachable from WebRTC.
+webrtc-js is a Voxbone project which aims at providing an easy way for customers to make their DID numbers reachable from WebRTC-enabled browsers. Below is information on how this library works, more information can be found on our [Developer Portal](https://developers.voxbone.com)
+
 It act as a wrapper around [JsSIP](https://github.com/versatica/JsSIP) and provide some extra functionalities such like:
 
 * Ephemeral authentication support
