@@ -412,20 +412,26 @@ extend(voxbone, {
 			if (!window.navigator.webkitGetUserMedia && !window.navigator.mozGetUserMedia) {
 				return false;
 			}
-			else {
-				var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-				if (is_firefox) {
-					var patt = new RegExp("firefox/([0-9])+");
-					var patt2 = new RegExp("([0-9])+");
-					var user_agent = patt.exec(navigator.userAgent.toLowerCase())[0];
-					var version = patt2.exec(user_agent)[0];
-					if (version < 23) {
-						return false;
-					}
-				}
 
-				return true;
+            var is_opera = !!window.opera || navigator.userAgent.indexOf('OPR/') >= 0;
+            var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+            var is_chrome = !!window.chrome && !is_opera; // Chrome 1+
+
+            //Chrome on MacOS seems to cause a lot of issue, let's just declare it as not supporting webrtc
+            if(navigator.appVersion.indexOf("Mac")!=-1 && is_chrome){
+                return false;
+            }
+
+            if (is_firefox) {
+                var patt = new RegExp("firefox/([0-9])+");
+                var patt2 = new RegExp("([0-9])+");
+                var user_agent = patt.exec(navigator.userAgent.toLowerCase())[0];
+                var version = patt2.exec(user_agent)[0];
+                if (version < 23) {
+                    return false;
+                }
 			}
+            return true;
 		}
 	}
 });
