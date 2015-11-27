@@ -165,7 +165,7 @@ voxbone.WebRTC.customEventHandler.failed = function(e) {
   console.error(“Failed to establish the call”);
 }
 ```
-###getUserMediaFailed###
+####getUserMediaFailed####
 This API is used to indicate that getUserMedia failed which can be a result of browser not being able to access the mic. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.getUserMediaFailed = function(e) { 
