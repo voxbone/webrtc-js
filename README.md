@@ -27,13 +27,13 @@ voxbone.WebRTC.call(e164);
 ## Authentication token
 You can decide whether to authenticate via basi auth or use token generators.
 
-### Using Basic Auth
+#### Using Basic Auth
 Provide your username and webrtc key in the basicAuthInit() function.
 ```javascript
 voxbone.WebRTC.basicAuthInit(username, key)
 ```
 
-### Using Token Generator
+#### Using Token Generator
 An authentication token needs to be provided for initializing the voxbone.WebRTC object.
 ```json
 {
@@ -151,14 +151,14 @@ voxbone.WebRTC.isCallOpen();
 
 ##Event Handling##
 Voxbone.js provides many callback APIs allowing the web application to monitor the state of a call. Following is the list:
-###Progress###
+####Progress####
 This callback API indicates the called party phone is ringing now. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.progress = function(e) { 
     console.error(“call in progress”);
 }
 ```
-###Failed###
+####Failed####
 This callback API indicates that webRTC sdk failed to establish the call. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.failed = function(e) { 
@@ -172,21 +172,21 @@ voxbone.WebRTC.customEventHandler.getUserMediaFailed = function(e) {
   console.error(“Failed to access mic”);
 }
 ```
-###Accepted###
+####Accepted####
 This API is used to indicate that call is successfully established. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.accepted = function(e) { 
   console.log(“call started”);
 }
 ```
-###Ended###
+####Ended####
 This API is used to indicate that outgoing call just ended. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.ended = function(e) { 
   console.log(“call ended”);
 }
 ```
-###localMediaVolume###
+####localMediaVolume####
 This is a callback API to indicate the loudness of the speech at the calling party. Here is a sample implementation of this API:
 ```javascript
 voxbone.WebRTC.customEventHandler.localMediaVolume = function(e) { 
